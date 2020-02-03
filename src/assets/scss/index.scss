@@ -1,0 +1,290 @@
+$font-headline: 'Raleway', sans-serif;
+$font-text: 'Roboto', sans-serif;
+
+$white: white;
+$grey: #3C3F4D;
+$dark-grey: #25262e;
+$green: lawngreen;
+$red: orangered;
+$gold: gold;
+
+body {
+  background-color: #111111;
+  font-family: $font-text;
+  color: $white;
+
+  //background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+  //linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+  //linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+  //linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+  //linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+  //linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  //background-color: #131313;
+  //background-size: 20px 20px;
+
+  // pattern from https://www.heropatterns.com/
+  //background-color: #222222;
+  //background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23111111' fill-opacity='0.44'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-color: #181818;
+  background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23000000' fill-opacity='0.44'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+}
+
+.site-wrapper {
+  max-width: 850px;
+  width: 80%;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.last-updated {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  //margin: 20px 0px -20px 0px;
+  //
+  //@media (min-width: 768px) {
+  //  margin: 20px 30px -20px 30px;
+  //}
+}
+
+@mixin table-item {
+  text-align: center;
+  padding: 8px 20px;
+}
+
+@mixin flex-auto {
+  flex: 1 1 auto
+}
+
+.header {
+  max-width: 650px;
+  padding: 30px 30px 30px 30px;
+  color: black;
+  font-weight: 900;
+  font-size: 40px;
+  text-align: center;
+  margin: 0 auto;
+  height: auto;
+  width: 80%;
+  text-transform: uppercase;
+  font-family: $font-headline;
+
+  .main {
+    background-color: $white;
+    padding: 10px 0;
+    margin: 0 auto;
+    width: 80%
+  }
+
+  .subtitle {
+    padding: 5px 0;
+    font-size: 20px;
+    background-color: #222222;
+    margin: 0 auto;
+    width: 60%;
+    color: $white;
+    transform: rotate(-2deg);
+  }
+}
+
+.table-wrapper {
+  padding: 30px;
+  background-color: #0B0C10;
+}
+
+.table {
+  height: auto;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 30px 0;
+  }
+
+  .rank-column, .score-column, .history-column {
+    @include table-item;
+    width: 85px
+  }
+
+  .name-column {
+    @include table-item;
+    text-align: left;
+    @include flex-auto;
+    align-self: center;
+    min-width: 150px;
+  }
+
+  .score-column {
+    align-self: center;
+  }
+
+  .history-column {
+    align-self: center;
+  }
+
+  .thead {
+    .tr {
+      display: flex;
+    }
+
+    .tr .th {
+      background-color: $grey;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: $font-headline;
+      align-self: auto;
+    }
+
+  }
+
+
+  .tr{
+    display: flex;
+    .td {
+      padding: 8px 20px;
+    }
+
+    &:nth-child(2n) {
+      background-color: $dark-grey;
+    }
+    &:nth-child(2n + 1) {
+      background-color: #0b0b0f;
+    }
+  }
+}
+
+.table-item {
+  @include table-item
+}
+
+.flex-auto {
+  @include flex-auto
+}
+
+.player-rank {
+  width: 65px;
+  padding: 8px 20px;
+  display: inline-block;
+  border-right: 2px solid black;
+}
+
+.player-name {
+  padding: 8px 20px;
+  display: inline-block;
+}
+
+.rank {
+  display: flex;
+  .rank-change {
+    width: 50%;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    .rank-change-icon{
+      display: inline-block;
+      width: 100%;
+    }
+    .rank-change-value{
+      display: block;
+    }
+  }
+  .rank-value {
+    align-self: center;
+    width: 50%;
+    text-align: left;
+  }
+}
+
+.fa, .far {
+  &.fa-star {
+    font-weight: bold;
+    font-size: 0.6rem
+  }
+}
+
+.color-green {
+  color: $green;
+}
+
+.color-red {
+  color: $red;
+}
+
+.color-gold {
+  color: $gold;
+}
+
+button.button-history {
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* show a hand cursor on hover; some argue that we
+  should keep the default arrow cursor for buttons */
+  cursor: pointer;
+  border: 1px solid $white;
+  padding: 1px 10px;
+  border-radius: 5px;
+  &:hover {
+    border-color: #939393;
+  }
+  &:active {
+    background-color: $white;
+    color: black;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.player-score {
+  float: right;
+  width: 80px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 10px;
+  a {
+    color: $white;
+  }
+}
+
+.loading-history {
+  padding: 20px;
+  text-align: center;
+}
+
+.loading-history-error {
+  padding: 20px;
+  text-align: center;
+}
+
+.recharts-legend-item-text {
+  text-transform: capitalize;
+}
+
+.player-search {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 15px;
+
+  .fa.fa-search {
+    margin-right: 5px;
+  }
+}
+
+.player-search-input {
+  background-color: $dark-grey;
+  color: $white;
+  border: 2px solid black;
+  padding: 5px;
+  font-size: 12px;
+}
