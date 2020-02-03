@@ -1,4 +1,4 @@
-const models = require('../models');
+const models = require('../models/index');
 
 const getNewestTimestamps = async (limit = 1) => {
   const response = await models.RankEntry.findAll({

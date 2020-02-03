@@ -70,7 +70,7 @@ const IndexPage = (props: AppProps) => {
 
 IndexPage.getInitialProps = async () => {
   try {
-    const res = await fetch('https://white-spire.com/api/v1/fullLeaderboard')
+    const res = await fetch('http://localhost:3000/api/v1/fullLeaderboard')
     const leaderboard: FullLeaderboardEntry[] = await res.json()
     return { leaderboard }
   } catch (e) {
