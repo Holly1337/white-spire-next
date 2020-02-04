@@ -3,12 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start:next": "next start -p $PORT",
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop ecosystem.config.js",
+    "restart": "pm2 restart ecosystem.config.js",
+    "migration:generate": "sequelize migration:generate --name rankentry",
+    "migrate": "sequelize-cli db:migrate",
+    "export": "next export"
+  },
   "dependencies": {
     "@types/classnames": "^2.2.9",
     "@types/node": "^13.7.0",
     "@types/react": "^16.9.19",
     "@zeit/next-sass": "^1.0.1",
     "classnames": "^2.2.6",
+    "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.24.0",
     "mysql2": "^2.1.0",
@@ -27,11 +39,6 @@
     "typescript": "^3.7.5"
   },
   "devDependencies": {},
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC"

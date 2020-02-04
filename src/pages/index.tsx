@@ -9,12 +9,13 @@ import PlayerSearch from '../Components/PlayerSearch'
 import LastUpdated from '../Components/LastUpdated'
 import Table from '../Components/Table/Table'
 import DataInfoFooter from '../Components/Layout/DataInfoFooter'
+import leaderboard from '../data/leaderboard.json'
 
 import '../assets/scss/index.scss'
 
-const IndexPage = (props: AppProps) => {
+const IndexPage = () => {
   const [searchText, setSearchText] = useState<string>('')
-  const [leaderboard, setLeaderboard] = useState<FullLeaderboardEntry[]>(props.leaderboard)
+  // const [leaderboard, setLeaderboard] = useState<FullLeaderboardEntry[]>(props.leaderboard)
 
   if (leaderboard === null) {
     return (
@@ -68,14 +69,16 @@ const IndexPage = (props: AppProps) => {
   )
 }
 
-IndexPage.getInitialProps = async () => {
-  try {
-    const res = await fetch('http://localhost:3000/api/v1/fullLeaderboard')
-    const leaderboard: FullLeaderboardEntry[] = await res.json()
-    return { leaderboard }
-  } catch (e) {
-    return { leaderboard: undefined }
-  }
-}
+// IndexPage.getInitialProps = async () => {
+//   try {
+//     const port = process.env.PORT ?? 3000
+//     const res = await fetch(`http://localhost:${port}/api/v1/fullLeaderboard`)
+//     const leaderboard: FullLeaderboardEntry[] = await res.json()
+//     return { leaderboard }
+//   } catch (e) {
+//     console.error(e)
+//     return { leaderboard: undefined }
+//   }
+// }
 
 export default IndexPage

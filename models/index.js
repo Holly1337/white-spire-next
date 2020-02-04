@@ -1,11 +1,14 @@
 'use strict';
+require('dotenv').config()
+
+const modelsDir = process.env.ROOT ? `${process.env.ROOT}/models` : __dirname
 
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.js')[env];
+const config = require(process.env.ROOT ? process.env.ROOT + '/config/config.js' : __dirname + '/../config/config.js')[env];
 const db = {};
 
 let sequelize;
@@ -16,12 +19,12 @@ if (config.use_env_variable) {
 }
 
 fs
-  .readdirSync(__dirname)
+  .readdirSync(modelsDir)
   .filter(file => {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => {
-    const model = sequelize['import'](path.join(__dirname, file));
+    const model = sequelize['import'](path.join(modelsDir, file));
     db[model.name] = model;
   });
 
