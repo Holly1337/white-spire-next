@@ -13,6 +13,7 @@
 .next
 out
 src/data/leaderboard.json
+docker-compose.yml
 
 # misc
 .DS_Store
