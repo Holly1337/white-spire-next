@@ -10,6 +10,7 @@ import LastUpdated from '../Components/LastUpdated'
 import Table from '../Components/Table/Table'
 import DataInfoFooter from '../Components/Layout/DataInfoFooter'
 import leaderboard from '../data/leaderboard.json'
+import GithubCorner from 'react-github-corner'
 
 import '../assets/scss/index.scss'
 
@@ -58,6 +59,11 @@ const IndexPage = () => {
       <Head>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css' />
       </Head>
+      <GithubCorner
+        href="https://github.com/Holly1337/white-spire-next"
+        octoColor={'#151513'}
+        bannerColor={'#fff'}
+      />
       <Header />
       <div className='table-wrapper'>
         <PlayerSearch value={searchText} onChange={onPlayerSearchChange} />
